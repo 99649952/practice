@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+html, body {
+    font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif, 'Open Sans';
+}
+
+a {
+    color: #4c5f70;
+    outline: 0;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    margin-bottom: 0;
+}
+
+.wrapper {
+    position: relative;
+    padding-top: 54px;
+    min-height: 100%;
+    padding-bottom: 45px;
+}
+
+/*
+    顶部
+*/
+.top-nav {
+    position: absolute;
+    min-height: 52px;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1010;
+}
+
+.brand span {
+    font-size: 18px;
+}
+
+/*
+    左侧导航
+*/
+.navbar-side {
+    display: block;
+    position: absolute;
+}
+.sidebar-menu {
+    width: 240px;
+    background-color: #1c2b36;
+    height: 100%;
+}
+.navbar-default {
+    border: 0 solid black;
+}
+.sidebar-collapse > .nav > li > a {
+    padding: 15px 10px;
+}
+.sidebar-collapse .nav > li > a {
+    color: #fff;
+    background: #1c2b36;
+    text-shadow: none;
+    border-bottom: 1px solid #345;
+}
+.nav > li > a > i {
+    margin-right: 10px;
+}
+.nav > li > ul.nav > li > a {
+    padding: 15px 40px;
+}
+.active-menu {
+    background-color: #00CA79!important;
+}
+
+
+/*
+    内容区域
+*/
+#page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background: #F3F3F3;
+}
+
+#page-inner {
+    width: 100%;
+    margin: 10px 20px 10px 0;
+    background-color: #fff!important;
+    padding: 10px;
+    min-height: 1200px;
+}
+
+
+/*
+    媒体查询
+*/
+@media (min-width: 1200px) {
+    /*
+        左侧导航
+    */
+    .navbar-side {
+        position: absolute;
+        width: 260px;
+        display: block;
+    }
+    .sidebar-collapse {
+        display: block;
+    }
+    /*
+        内容区域
+    */
+    #page-wrapper {
+        margin: 0 0 0 260px;
+        padding: 15px 30px;
+        min-height: 1200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    /*
+        左侧导航
+    */
+    .navbar-side {
+        display: none;
+    }
+    .sidebar-menu {
+        width: 100%;
+    }
+    /*
+        内容区域
+    */
+    #page-wrapper {
+        width: 100%;
+    }
+}

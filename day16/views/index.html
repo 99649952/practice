@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" http-equiv="Content-Type">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JQ抽屉效果</title>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/font-awesome.css"/>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/jquery-1.8.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+<div class="top-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle nav-icon" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand nav-logo" href="index.html"><img src="../img/logo.jpg" alt=""></a>
+        </div>
+        <div class="navbar-collapse collapse nav-list">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="javascript:void(0);">全部</a></li>
+                <li><a href="javascript:void(0);">42区</a></li>
+                <li><a href="javascript:void(0);">段子</a></li>
+                <li><a href="javascript:void(0);">图片</a></li>
+                <li><a href="javascript:void(0);">挨踢1024</a></li>
+                <li><a href="javascript:void(0);">你问我答</a></li>
+            </ul>
+            <div class="nav-form">
+                <div class="key-sera">
+                    <form action="" method="post" name="form-group" id="searchFrm2">
+                        <input type="text" class="form-input" name="words" id="txtSearch2" autocomplete="off" style="background-color: rgb(244, 244, 244);">
+                        <a href="javascript:void(0);" class="i" name="searchBtn_2" id="searchBtn_3"><img src="../img/search.png" alt="" class="ico"></a>
+                        <input type="hidden" value="1" id="page" name="page">
+                    </form>
+                </div>
+                <div class="action-nav">
+                    <a href="login.html" class="login-btn-a" id="login-link-a">登录</a>
+                    <a href="register.html" class="login-btn-a" id="reg-link-a">注册</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function() {
+                $('.nav-icon').on('click', function() {
+                    if($('.nav-list').is(':hidden')) {
+                        $('.nav-list').show();
+                        $('.nav-form').hide();
+                    } else {
+                        $('.nav-list').hide();
+                        $('.nav-form').show();
+                    }
+                });
+            })
+        </script>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="inner-left col-sm-8">
+            <div class="inner-left-top">
+                <div class="nav-fabu">
+                    <span class="nav-sort">即使排序</span><span class="nav-hour">24小时</span><span class="nav-hour">3天</span>
+                    <a href="javascript:void(0);"><strong>+</strong>&nbsp;&nbsp;&nbsp;发布</a>
+                </div>
+                <ul class="inner-nav-list">
+                    <li class="inner-nav-cur"><a href="javascript:void(0);">最热</a></li>
+                    <li><a href="javascript:void(0);">最新</a></li>
+                    <li><a href="javascript:void(0);">人类发布</a></li>
+                </ul>
+            </div>
+
+            <div class="inner-container">
+                <div class="inner-cont-every">
+                    <dl>
+                        <dd>
+                            <div class="inner-every-top">
+                                <a href="javascript:void(0);">
+                                    视频：美国女记者直播中流鼻涕，观众目睹其滴地上】事后，哈莉在“推特”上传了一张照片，照片里是她的网上购物车，里面有价值53美元(约合人民币347元)的纸巾和一本名叫《度过羞耻期》的书。目前，哈莉的出丑视频正在网上疯狂传播。
+                                </a>
+                                <span>-news.163.com 42区</span>
+                            </div>
+                        </dd>
+                        <dt>
+                            <img src="../img/1.jpg" alt="">
+                        </dt>
+                    </dl>
+                    <div class="part2">
+                        <a href="javascript:void(0);" class="digg-a" title="推荐" style="display: inline-block;">
+                            <span class="hand-icon icon-digg"></span>
+                            <b>5</b>
+                            <i style="display:none">8063060</i>
+                        </a>
+                        <a href="javascript:void(0);" class="discus-a" id="discus-a-8063060" lang="8063060" title="">
+                            <span class="hand-icon icon-discus"></span>
+                            <b>4</b>
+                        </a>
+                        <a href="javascript:void(0);" class="collect-a" id="collect-a-8063060" title="加入私藏">
+                            <span class="hand-icon icon-collect"></span>
+                            <b>私藏</b>
+                        </a>
+                        <a href="javascript:void(0);" class="user-a">
+                            <span><img src="http://img2.chouti.com/group11/M00/04/F5/wKgCPlUvOj-DGpEEAAAkbseBXEg862=15x15.jpg"></span>
+                            <b>璀璨的摧残</b>
+                        </a>
+                        <span class="left time-into">
+                            <a class="time-a" href="/link/8063060" target="_blank">
+                                <b>30分钟前</b>
+                            </a>
+                            <i>入热榜</i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inner-right col-sm-4">
+            抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉抽屉
+        </div>
+    </div>
+</div>
+</body>
+</html>

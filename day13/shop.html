@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>购物商城</title>
+  <style type="text/css">
+     #container {
+       width: 1200px;
+       margin: 0px auto; /*主面板DIV居中*/
+     }
+     #header {
+       width:100%;
+       height:150px;
+       border:1px #F00 solid;
+     }
+     #main {
+       width:100%;
+       height:3000px;
+       border:1px #F00 solid;
+     }
+     #footer {
+       width:100%;
+       height:100px;
+       border:1px #F00 solid;
+     }
+     .cat, .sidebar {
+       float:left;
+       width:20%;
+       height:100%;
+       background-color: aqua;
+     }
+     .content {
+       float:left;
+       width:60%;
+       height:100%;
+     }
+     .header_2015 {
+       margin-bottom: 0;
+       background: #f2f2f2;
+       border-bottom: 1px solid #ddd;
+       height: 20%;
+     }
+    .top_nav_search{
+      border: 1px solid #3a3a3a;
+      height: 80%;
+    }
+    .header_l{
+      float: left;
+      width: 25%;
+      height: 100%;
+      background-color: aliceblue;
+    }
+    .header_m{
+      float: left;
+      width: 50%;
+      height: 100%;
+    }
+    .header_r{
+      float: left;
+      width: 25%;
+      height: 100%;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- 整个页面布局的容器-->
+  <div id="container">
+    <!-- 上部-->
+    <div id="header">
+      <!-- 顶部-->
+      <div class="header_2015">
+        顶部
+      </div>
+      <!-- 头部搜索部分-->
+      <div class="top_nav_search">
+        <!-- who am i-->
+        <div class="header_l">
+          head-l
+        </div>
+        <!--搜索和热门商品 -->
+        <div class="header_m">
+          <!-- 搜索框-->
+          <div>
+                <form>
+                  <input type="text"  value="显瘦铅笔小脚打底裤">
+                  <input type="submit" value="搜  索">
+                </form>
+            </div>
+          <!-- 热门商品-->
+          <div class="ts_hotwords">
+                    <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/羽绒服?from=hotword"> 羽绒服  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/毛呢外套?from=hotword"> 毛呢外套  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/连衣裙?from=hotword"> 连衣裙  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/毛衣?from=hotword"> 毛衣  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/打底衫?from=hotword"> 打底衫  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/男士外套?from=hotword"> 男士外套  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/大码女装?from=hotword"> 大码女装  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/短靴?from=hotword"> 短靴  </a>
+                        <a rel="nofollow" class="ts_hotword" style="color: #999999 " href="http://www.mogujie.com/book/search/家居服?from=hotword"> 家居服  </a>
+                    </div>
+        </div>
+        <div class="header_r">
+          head-r
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 中部-->
+    <div id="main">
+      <div class="cat">商品分类(cat)</div>
+      <div class="content">内容(content)</div>
+      <div class="sidebar">右侧(sidebar)</div>
+    </div>
+
+    <!-- 底部-->
+    <div id="footer">
+      底部（footer）
+    </div>
+  </div>
+</body>
+</html>

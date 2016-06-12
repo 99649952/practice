@@ -1,0 +1,27 @@
+.wrapper{ width:100%; height: 1000px; margin: 0 auto; }
+.header{ width:100%; height: 85px; background: url("../images/headerbg_01.png") repeat;}
+.picture{padding-left: 85px; padding-top: 12px;}
+.header p{font-family: "微软雅黑"; font-size: 14px;  color: white; padding-right: 30px; padding-top: 7px; display: inline-block; float: right; }
+.header h2{ font-size: 36px; color: white; padding-top: 12px; padding-left: 82px; display:inline-block;}
+.header h2 a{font-size:18px; display: block;}
+.first{width: 515px; height: 32px; border-radius: 8px; border:none;outline: none; display:inline-block; margin-top: 30px;}
+.header span{ height:32px; width: 76px; background: white; border-radius: 5px; text-align: center; line-height: 32px;margin-left: 20px; margin-top: 30px; display:inline-block; }
+
+
+.nav{ height:64px; border-bottom: 2px solid #ffa8b8; margin-bottom: 30px;}
+.y_nav{ width:1200px; height: 64px; margin: 0 auto;}
+.nav ul li{ float: left;padding-left: 10px;}
+.nav ul li a{ width:130px;color:#050505; font-size: 21px;text-align: center;line-height: 64px; display: inline-block;}
+.nav ul li a:active{}
+
+.container{ height: 510px;}
+.y_container{height: 510px;width: 1200px; margin:0 auto;}
+.y_container div{height: 30px;}
+.container h2{font-family: "微软雅黑"; font-size: 32px; padding-right:40px; display:inline-block;}
+.container p{display: inline-block;}
+.container p a{font-family: "微软雅黑"; font-size: 14px;  color: #323232;}
+.container dl{float: left; padding-left: 25px; padding-top: 30px;}
+.container dl dd{ padding-top: 10px; color: #666666; font-size: 14px;}
+.container dl dd a{ font-size: 12px; background: #9171bd; padding: 5px; color: white; margin-left: 22px;}
+.container span{color: #ff3366;padding-top: 10px; display:inline-block;}
+.pic{color:#9999a5;padding-left: 20px; display: inline-block;}

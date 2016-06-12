@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理系统登录</title>
+	<link rel="stylesheet" href="/static/css/login.css">
+	<script src="/static/js/jquery-2.1.4.min.js"></script>
+	<script src="/static/js/login.js"></script>
+</head>
+<body>
+	<div class="login-wrapper">
+		<form action="/login/" method="post" id="myform">
+			<div class="user">
+				<label for="user">姓&nbsp;名：</label>
+				<input type="text" name="user" id="user">
+			</div>
+        <span class="tip user-tip"></span>
+			<div class="password">
+				<label for="password">密&nbsp;码：</label>
+				<input type="password"  name="password" id="password">
+			</div>
+        <span class="tip password-tip"></span>
+        <span style="color: red;">{{ login_result }}</span>
+      <div class="login-button">
+        <a href="javascript:void(0);"><input type="submit" id="submit_btn" value="登&nbsp;&nbsp;录"/></a>
+        <a class="login-liejie" href="/register/">没有有账号？<span>立即注册</span></a>
+      </div>
+		</form>
+	</div>
+</body>
+</html>

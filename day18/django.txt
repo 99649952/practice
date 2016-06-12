@@ -1,0 +1,232 @@
+基础
+
+常用命令
+
+django-admin startproject sitename	创建项目
+python manage.py runserver 0.0.0.0	启动服务
+python manage.py startapp appname	创建app	
+python manage.py makemigrations		检索数据库
+python manage.py migrate		创建数据库
+python manage.py createsuperuser	创建超级用户
+配置文件
+
+1、数据库
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME':'dbname',
+    'USER': 'root',
+    'PASSWORD': 'xxx',
+    'HOST': '',
+    'PORT': '',
+    }
+}
+
+模板
+TEMPLATE_DIRS = (
+        os.path.join(BASE_DIR,'templates'),
+    )
+
+静态文件
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR,'static'),
+    )
+
+
+视图和url
+每个视图函数至少有一个request参数
+
+url
+Django中网址是写在 urls.py 文件中，用正则表达式对应 views.py 中的一个函数
+配置url和对应视图函数之间的映射
+url(r'^index/(\d*)', views.index), 	
+url(r'^manage/(?P<name>\w*)/(?P<id>\d*)', views.manage),
+url(r'^manage/(?P<name>\w*)', views.manage,{'id':333}),
+
+url(r'^web/',include('web.urls')),	根据app对路由规则进行一次分类
+
+
+模板
+
+用{{}}包围的是变量，如{{person_name}}，
+用{%%}包围的是块标签，如{%if ordered_warranty%}
+{% for item in item_list %}  <a>{{ item }}</a>  {% endfor %}
+　　forloop.counter
+　　forloop.first
+　　forloop.last 
+{% if ordered_warranty %}  {% else %} {% endif %}
+母板：{% block title %}{% endblock %}
+子板：{% extends "base.html" %}
+　　　{% block title %}{% endblock %}
+
+{{ship_date|date:"F j, Y"}}把ship_date变量传递给过滤器，并给date过滤器传递了一个参数“F j, Y”，date过滤器以给定参数的形式格式化日期
+
+
+模型
+新建一个对象的方法有以下几种：
+Person.objects.create(name=name,age=age)
+p = Person(name="WZ", age=23)
+p.save()
+p = Person(name="TWZ")
+p.age = 23
+p.save()
+Person.objects.get_or_create(name="WZT", age=23)
+这种方法是防止重复很好的方法，但是速度要相对慢些，返回一个元组，第一个为Person对象，第二个为True或False, 新建时返回的是True, 已经存在时返回False.
+
+获取对象有以下方法：
+Person.objects.all()
+Person.objects.all()[:10] 切片操作，获取10个人，不支持负索引，切片可以节约内存
+Person.objects.get(name=name)
+Person.objects.filter(name="abc") # 等于Person.objects.filter(name__exact="abc") 名称严格等于 "abc" 的人
+Person.objects.filter(name__iexact="abc") # 名称为 abc 但是不区分大小写，可以找到 ABC, Abc, aBC，这些都符合条件
+Person.objects.filter(name__contains="abc") # 名称中包含 "abc"的人
+Person.objects.filter(name__icontains="abc") #名称中包含 "abc"，且abc不区分大小写
+Person.objects.filter(name__regex="^abc") # 正则表达式查询
+Person.objects.filter(name__iregex="^abc")# 正则表达式不区分大小写
+Person.objects.exclude(name__contains="WZ") # 排除包含 WZ 的Person对象
+Person.objects.filter(name__contains="abc").exclude(age=23) # 找出名称含有abc, 但是排除年龄是23岁的
+
+删除：
+Person.objects.filter().delete()
+Person.objects.all().delete()
+
+
+
+
+
+
+
+
+表单
+表单可以验证输入，也可以生成html
+
+<form action="/user_list/" method="post">
+	<p>用户类型：{{ obj.user_type }}
+		<span>{% error_message errors.user_type %}</span>
+	</p>
+	<p>主机：{{ obj.host }}
+		<span>{% error_message errors.host %}</span>
+	</p>
+	<p>端口：{{ obj.port }} <span>{{ errors.port }}</span></p>
+	<p>邮箱：{{ obj.email }} <span>{{ errors.email }}</span></p>
+	<p>手机：{{ obj.mobile }} <span>{{ errors.mobile }}</span></p>
+	<p>备注：{{ obj.memo }} <span>{{ errors.memo }}</span></p>
+	<input type="submit"  value="submit" />
+</form>
+
+
+#z自定义匹配类型
+def mobile_validate(value):
+    mobile_re = re.compile(r'^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$')
+    if not mobile_re.match(value):
+        raise ValidationError('手机号码格式错误')
+
+#创建一个继承Form的类
+class UserInfo(forms.Form):
+    user_type_choice = (
+        (0, u'普通用户'),
+        (1, u'高级用户'),
+    )
+    
+    user_type = forms.IntegerField(widget=forms.widgets.Select(choices=user_type_choice,
+                                                               attrs={'class': "form-control"}))
+    email = forms.EmailField(error_messages={'required': u'邮箱不能为空'})	#自定义表单错误提示
+    host = forms.CharField(error_messages={'required': u'主机不能为空'})
+    port = forms.CharField(error_messages={'required': u'端口不能为空'})
+    mobile = forms.CharField(validators=[mobile_validate, ],  #调用自己定义的匹配函数
+                             error_messages={'required': u'手机不能为空'},
+                             widget=forms.TextInput(attrs={'class': "form-control", 	#添加标签属性
+                                                          'placeholder': u'手机号码'}))
+    memo = forms.CharField(required=False,
+                           widget=forms.Textarea(attrs={'class': "form-control",
+                                                        'placeholder': u'备注'})
+                           )
+
+#前端提交数据处理函数
+def user_list(request):
+    obj = UserInfo()
+    if request.method == "POST":
+        user_input_obj = UserInfo(request.POST)
+        if user_input_obj.is_valid():
+            data = user_input_obj.clean()
+            print data
+        else:
+            error_msg = user_input_obj.errors.as_data()
+            return render(request, 'user_list.html', {'obj': user_input_obj, 'errors': error_msg})
+    return render(request, 'user_list.html', {'obj': obj})
+
+
+
+
+ajax
+
+1、ajax提交提交单条数据到django
+function AjaxSubmit(){
+	var host = "1.1.1.1";
+	var port = "9999";
+	$.ajax({
+		url: "/ajax_data/",
+		type: 'POST',
+		data: {h:host, p:port},
+		success: function(arg){
+		}
+	});
+}
+django接收数据
+def ajax_data(request):
+    print request.POST['h']
+    return HttpResponse('ok')
+
+2、ajax提交包含多条数据的元祖
+function AjaxSubmitSet(){
+	var array_users= [
+		{'username': 'alex', 'age': 18},
+		{'username': 'rain', 'age': 16},
+		{'username': 'eric', 'age': 17}
+	];
+	$.ajax({
+		url: "/ajax_data_set/",
+		type: 'POST',
+		tradition: true,
+		data: {data: JSON.stringify(array_users)},
+		success: function(arg){
+			// json.loads
+			var callback_dict = $.parseJSON(arg);
+			if(callback_dict.status){
+				alert('成功');
+			}else{
+				alert(callback_dict.error);
+			}
+		}
+	});
+}
+
+django接受数据
+def ajax_data_set(request):
+    ret = {'status': True, 'error':""}
+    try:
+        print request.POST
+    except Exception,e:
+        ret['status'] = False
+        ret['error'] = str(e)
+
+    return HttpResponse(json.dumps(ret))
+	
+	
+session
+request.session 可以在视图中任何地方使用，它类似于python中的字典
+session 默认有效时间为两周，可以在 settings.py 中修改默认值
+# 创建或修改 session：
+request.session[key] = value
+# 获取 session：
+request.session.get(key,default=None)
+# 删除 session
+del request.session[key] # 不存在时报错
+
+
+
+
+
+
+
+

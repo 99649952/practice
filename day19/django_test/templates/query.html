@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="/static/jquery-2.1.4.min.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+  <div>
+   <form action="/query/" method="post">
+    <div>
+      {{ obj.hostname }}
+    </div>
+    <span>{{ error.hostname }}</span>
+    <div>
+      {{ obj.ip }}
+    </div>
+    <span>{{ error.ip }}</span>
+    <div>
+      {{ obj.host_group }}
+    </div>
+     <div>
+      <input type="submit" value="提交">
+     </div>
+     {% for line in group_lsit %}
+        <p>line</p>
+      {% endfor %}
+		</form>
+  </div>
+
+  <script>
+    function AjaxSubmit(){
+      var host_group = $('#id_host_group').val();
+      var host_name = $('#id_host_name').val();
+      var ip = $('#id_ip').val();
+      $.ajax({
+        url: "/index/",
+        type: 'POST',
+        data: {host_group:host_group, host_name:host_name,ip:ip},
+        success: function(arg){
+        }
+      });
+    }
+  </script>
+
+
+
+</body>
+</html>
+
+
+
+</body>
+</html>

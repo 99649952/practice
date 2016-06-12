@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理页面</title>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <script src="../js/jquery.min.1.8.1.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+                <div class="nav-header">
+                    <a href="index.html" class="brand">
+                        <span>linux 后台管理</span>
+                    </a>
+                </div>
+        </header>
+        <!-- 左侧导航 -->
+        <nav class="navbar-default navbar-side sidebar-menu" role="navigation" id="navbar-side">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a class="active-menu" href="index.html">IP资源池</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">资源池 <span class="fa arrow"></span></a>
+                        <ol class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0);">池1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">池2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">池3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">池4</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">池5</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">VLAN <span class="fa arrow"></span></a>
+                        <ol class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0);">vlan1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">vlan2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">vlan3</a>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- 内容区域 -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="page-nav">
+                    <ul>
+                        <li><a href="index.html">首页</a>/</li>
+                        <li><a href="javascript:void(0);">IP资源池</a>/</li>
+                        <li><a href="javascript:void(0);">资源池</a></li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <div class="container">
+                        <!-- 搜索 -->
+                        <div class="header">
+                            <span class="add-icon" id="add_icon">+</span>
+                            <select name="" id="select_wrap" class="select-wrap">
+                                <option value="ip">ip</option>
+                                <option value="xuhao">序号</option>
+                                <option value="getway">网关</option>
+                                <option value="netmask">掩码</option>
+                            </select>
+                            <form action="" class="form-group">
+                                <input type="text" id="search_text" placeholder="逗号分割多条件"/>
+                                <input type="button" id="search_button" value="搜&nbsp;&nbsp;索"/>
+                            </form>
+                        </div>
+                        <!-- 内容导航 -->
+                        <table class="table-top btn-group" id="all_btn" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td><label><input type="checkbox" id="check_all"><span>&nbsp;&nbsp;全选</span></label></td>
+                                <td><input type="button" value="反选" class="btn" id="reverse"></td>
+                                <td><input type="button" value="添加" class="btn add-btn"></td>
+                                <td><input type="button" value="删除" class="btn remove-btn"></td>
+                                <td><input type="button" value="编辑模式" class="btn editor-btn" data-num="false"></td>
+                                <td><input type="button" value="保存" class="btn save-btn"></td>
+                                <td><input type="button" value="刷新" class="btn refresh-btn"></td>
+                            </tr>
+                        </table>
+                        <!-- 内容 -->
+                        <table class="table-container" id="table" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <th>选择</th>
+                                    <th>序号</th>
+                                    <th>IP</th>
+                                    <th>网关</th>
+                                    <th>掩码</th>
+                                    <th>修改</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tr-row" id="0">
+                                    <td><input type="checkbox" value="0"></td>
+                                    <td>1</td>
+                                    <td><input type="text" value="10.1.6.230" readonly="readonly" id="one" data-num="1"></td>
+                                    <td><input type="text" value="10.1.6.1" readonly="readonly" id="two" data-num="1"></td>
+                                    <td><input type="text" value="255.255.255.0" readonly="readonly" data-num="1"></td>
+                                    <td><input type="button" value="编辑" readonly="readonly" class="num-editor-btn" data-num="true"></td>
+                                </tr>
+                                <tr class="tr-row" id="1">
+                                    <td><input type="checkbox" value="1"></td>
+                                    <td>2</td>
+                                    <td><input type="text" value="10.1.6.230" readonly="readonly" data-num="2"></td>
+                                    <td><input type="text" value="10.1.6.1" readonly="readonly" data-num="2"></td>
+                                    <td><input type="text" value="255.255.255.0" readonly="readonly" data-num="2"></td>
+                                    <td><input type="button" value="编辑" readonly="readonly" class="num-editor-btn" data-num="true"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/index.js"></script>
+</html>

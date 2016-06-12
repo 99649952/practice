@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0048)http://v3.bootcss.com/examples/navbar-fixed-top/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+    <title>BBS</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/plugin/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="/static/plugin/bootstrap/css/custom.css" rel="stylesheet">
+    {% block head-js %}
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">草榴社区</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li ><a href="{% url 'index' %}">综合区</a></li>
+            <li><a href="{% url 'category' 1 %}">欧美专区</a></li>
+            <li><a href="{% url 'category' 2 %}">日韩专区</a></li>
+            <li><a href="{% url 'category' 3 %}">河北区</a></li>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+               {% if is_login %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ username }} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">发贴</a></li>
+                    <li><a href="{% url 'logout' %}">注销</a></li>
+                  </ul>
+                </li>
+               {% else %}
+                 <li><a href="{% url 'login' %}">注册\登录</a></li>
+               {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+     {% block page-container %}
+        <div class="row">
+            <div class="col-md-8 left-content-panel">
+                <div class="content-box">
+                    {% for article in articles reversed %}
+                        <div class="article-box row">
+                            <div class="article-head-img col-md-3">
+                                <img src="/static/uploads/images_1.jpg">
+                            </div>
+                            <div class="article-summary col-md-8">
+                                <h4><a href="#">{{ article.title }}</a></h4>
+                                <div class="article-attr">
+                                    <ul  class="list-inline">
+                                        <li>{{ article.author.name }}</li>
+                                        <li>{{ article.publish_date }}</li>
+                                        <li>thumbup:{{ article.thumbup_set.select_related.count }}</li>
+                                        <li>comments:{{ article.comment_set.select_related.count }}</li>
+                                    </ul>
+                                </div>
+                                <p>{{ article.summary }}</p>
+                            </div>
+                        </div>
+                         <hr >
+                    {% endfor %}
+`
+                </div>
+            </div>
+            <div class="col-md-4 right-sidebar">
+                bar
+            </div>
+        </div>
+     {% endblock %}
+
+    </div> <!-- /container -->
+<form action="{% url 'new_article' %}" enctype="multipart/form-data" method="post">
+  <div class="form-group">
+    <label for="title">标题</label>
+    <input type="text" class="form-control" id="title" placeholder="标题" name="title">
+  </div>
+  <div class="form-group">
+    <label for="summary">简介</label>
+    <input type="text" class="form-control" id="summary" placeholder="简介" name="summary">
+  </div>
+  <div class="form-group">
+    <label for="category">板块</label>
+    <input type="number" class="form-control" id="category" placeholder="板块" name="category">
+  </div>
+  <div class="form-group">
+    <label for="head_img">图片</label>
+    <input type="file" id="head_img" name="head_img">
+  </div>
+  <div class="form-group">
+    <label for="head_img">内容</label>
+    <input type="text" class="form-control" id="content" placeholder="内容" name="content" >
+  </div>
+  <span></span>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var menus = $("#navbar a[href='{{ request.path }}']")[0];
+            $(menus).parent().addClass("active");
+            $(menus).parent().siblings().removeClass("active");
+            //console.log(menus);
+        });
+    </script>
+  
+    {% block bottom-js %}
+   {% endblock %}
+</body></html>

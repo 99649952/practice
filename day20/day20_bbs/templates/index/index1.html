@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  {% for article in articles %}
+      <div class="article-box row">
+          <div class="article-head-img col-md-3">
+              <img src="{{ article.head_img }}">
+          </div>
+          <div class="article-summary col-md-8">
+              <h4><a href="#">{{ article.title }}</a></h4>
+              <div class="article-attr">
+                  <ul  class="list-inline">
+                      <li>{{ article.author.name }}</li>
+                      <li>{{ article.publish_date }}</li>
+                      <li>thumbup:{{ article.thumbup_set.select_related.count }}</li>
+                      <li>comments:{{ article.comment_set.select_related.count }}</li>
+                  </ul>
+              </div>
+              <p>{{ article.summary }}</p>
+          </div>
+      </div>
+       <hr >
+  {% endfor %}
+</body>
+</html>

@@ -1,0 +1,48 @@
+body {
+    font-size:15px;
+    margin:0;
+}
+
+#container {
+    margin:0 auto;
+    width:100%;
+    height: 100%;
+}
+
+#header {
+    height:50px;
+    background:#9c6;
+    margin-bottom:5px;
+    font-size: 30px;
+}
+
+#mainContent {
+
+}
+
+#sidebar {
+    width:260px;
+    height:100%;
+    background-color: #d5d5d5;
+    overflow: auto;
+    position: absolute;
+}
+
+#content {
+    background:#ffa;
+    position: absolute;
+    left: 265px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+.left{
+    float: left;
+}
+

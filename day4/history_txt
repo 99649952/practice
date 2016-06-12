@@ -1,0 +1,42 @@
+(lp1
+cdatetime
+datetime
+p2
+(S'\x07\xdf\x0b\x14\x11\x03\x0e\x02\xe2H'
+tRp3
+aS'findinput:wedq'
+p4
+ag2
+(S'\x07\xdf\x0b\x14\x11\x04"\x0c\xf8P'
+tRp5
+aS'findinput:wwwrfew'
+p6
+ag5
+aS'findinput:www.oldboy.org'
+p7
+ag2
+(S'\x07\xdf\x0b\x14\x11\n,\x03\xc8\xc0'
+tRp8
+aS'findinput:ewq'
+p9
+ag2
+(S'\x07\xdf\x0b\x14\x11\x0b\x11\x0e\x8a\xa8'
+tRp10
+aS'findinput:www.old'
+p11
+ag10
+aS'findinput:www.oldboy.org'
+p12
+ag10
+aS'input_remove:rew'
+p13
+ag10
+aS'input_remove:{"backend": "www.oldboy.org","record":{"server": "100.1.7.20","weight": 20,"maxconn": 3000}}'
+p14
+ag10
+aS'input_add:{"backend": "www.oldboy.org","record":{"server": "100.1.7.20","weight": 20,"maxconn": 3000}}'
+p15
+ag10
+aS'input_remove:{"backend": "www.oldboy.org","record":{"server": "100.1.7.20","weight": 20,"maxconn": 3000}}'
+p16
+a.

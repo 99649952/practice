@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理页面</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.min.css"/>
+    <link href="/static/plugins/bootstrap/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <script src="/static/js/jquery.min.1.8.1.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="/static/js/index.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="top-nav-inner">
+                <div class="nav-header">
+                    <a href="manager.html" class="brand">
+                        <i class="fa fa-database"></i><span class="brand-name">后台管理系统</span>
+                    </a>
+                </div>
+                <!-- 分别率在大于768 屏幕下显示 -->
+                <div class="nav-container">
+                    <div class="pull-right">
+                        <div class="user-block hidden-xs">
+                            <a href="#" id="userToggle" data-toggle="dropdown">
+                                <div class="user-detail inline-block">
+                                    Jane Doe
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="nav-notification">
+                            <li>
+                                <a href="#" data-toggle="dropdown"><i class="fa fa-envelope fa-lg"></i></a>
+                                <span class="badge badge-purple bounceIn animation-delay5 active">2</span>
+
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="dropdown"><i class="fa fa-bell fa-lg"></i></a>
+                                <span class="badge badge-info bounceIn animation-delay6 active">4</span>
+                            </li>
+                            <li class="chat-notification">
+                                <a href="#" class="sidebarRight-toggle"><i class="fa fa-comments fa-lg"></i></a>
+                                <span class="badge badge-danger bounceIn active">1</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 分别率在小于768 屏幕下显示 -->
+                <div class="nav-icon" id="nav-icon">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- 左侧导航 -->
+        <nav class="navbar-default navbar-side sidebar-menu" role="navigation" id="navbar-side">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a class="active-menu" href="manager.html"><i class="fa fa-dashboard "></i>管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="fa fa-desktop "></i>用户管理 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-toggle-on"></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-bell "></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-circle-o "></i>用户管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="fa fa-yelp"></i>用户管理 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-coffee"></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-flash"></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-key"></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-send"></i>用户管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="fa fa-flash"></i>用户管理</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);"><i class="fa fa-bicycle"></i>用户管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-desktop"></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-code"></i>用户管理e</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- 内容区域 -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">用户管理</h1>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="btn-group">
+                                    <ul>
+                                        <li class="btn btn-success add-btn">新增</li>
+                                        <li class="btn btn-success">删除</li>
+                                        <li class="btn btn-success">启用</li>
+                                        <li class="btn btn-success">禁用</li>
+                                        <li class="btn btn-success">提交</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-condensed change-table">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox" id="check_all"/>
+                                            <label for="">全选</label>
+                                        </th>
+                                        <th>用户</th>
+                                        <th>密码</th>
+                                        <th>权限</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for line in user_info_list %}
+                                    <tr style="border-color:red ">
+                                        <td>
+                                            <input type="checkbox" class="check-btn"/>
+                                        </td>
+                                        <td><input type="text" readonly='readonly'value="{{ line.username }}" ></td>
+                                        <td><input type="text" readonly="readonly" value="{{ line.password }}"></td>
+                                        <td><input type="text" readonly="readonly" value="{{ line.privilege }}"></td>
+                                        <td><input type="text" readonly="readonly" value="{{ line.status }}"></td>
+                                        <td>
+                                            <span class="btn btn-success btn-sm">编辑</span>
+                                            <span class="btn btn-danger btn-sm">删除</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
